@@ -7,6 +7,7 @@ from django.contrib import messages
 from django.core.paginator import Paginator
 from django.db.models import Count
 from django.contrib.auth import logout
+
 import re
 
 def extract_video_id(url):
@@ -228,19 +229,6 @@ def Manager_view(request, user_id):
 
 
 
-# def feedback_tracker(request,user_id):
-#     # Fetch course feedback and general feedback from the database
-#      # Get all course feedback data
-#     feedbacks = Feedback.objects.all().select_related('course', 'employee')
-
-#     # Get all general feedback data
-#     general_feedback_data = GeneralFeedback.objects.all().select_related('user')
-
-#     return render(request, 'dashboards/feedback_tracker.html', {
-#         'course_feedback_data': feedbacks,
-#         'general_feedback_data': general_feedback_data
-#     })
-
 def feedback_tracker(request, user_id):
     # Fetch course feedback and general feedback from the database
     feedbacks = Feedback.objects.all().select_related('course', 'employee')
@@ -267,10 +255,6 @@ def feedback_tracker(request, user_id):
         'course_feedback_chart_data': course_feedback_chart_data
     })
 
-def employee_progress(request,user_id):
-    return render(request,'dashboards/employee_tracking.html')
-
-
 def logout_view(request):
     logout(request)  # Logs out the user
-    return redirect('login')
+    return redirect('login') 

@@ -11,6 +11,5 @@ urlpatterns = [
     path('view_course/<int:course_id>/<int:user_id>/', views.view_course, name='view_course'),
     path('feedback_form/<int:course_id>/<int:user_id>/',views.feedback_view,name='feedback_form'),
     path('feedback_tracker/<int:user_id>/',views.feedback_tracker,name='feedback_tracker'),
-    path('emp_pro/<int:user_id>/',views.employee_progress,name='emp_pro'),
-    path('logout/', views.logout_view, name='logout'),
+    path('logout',views.logout_view,name='logout'),
 ]
